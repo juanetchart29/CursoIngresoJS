@@ -1,5 +1,5 @@
 /*
- Alumno: Juan Pablo Etchart
+Alumno: Juan Pablo Etchart
 Al presionar el  botón, 
 se debe mostrar un mensaje como el siguiente 
 "Esto funciona de maravilla"
