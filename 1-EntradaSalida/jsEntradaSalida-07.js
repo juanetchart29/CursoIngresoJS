@@ -11,7 +11,7 @@ function sumar()
 	let resultado;
 	
 	n1=parseInt(document.getElementById("txtIdNumeroUno").value);
-	n2=parseInt(document.getElementById("txtIdNumeroDos").valu);
+	n2=parseInt(document.getElementById("txtIdNumeroDos").value);
 	resultado=(n1+n2);
 	alert(resultado);
 }
@@ -23,7 +23,7 @@ function restar()
 	let resultado;
 	
 	n1=parseInt(document.getElementById("txtIdNumeroUno").value);
-	n2=parseInt(document.getElementById("txtIdNumeroDos").valu);
+	n2=parseInt(document.getElementById("txtIdNumeroDos").value);
 	resultado=(n1-n2);
 	alert(resultado);
 }
@@ -34,7 +34,7 @@ function multiplicar()
 	let resultado;
 	
 	n1=parseInt(document.getElementById("txtIdNumeroUno").value);
-	n2=parseInt(document.getElementById("txtIdNumeroDos").valu);
+	n2=parseInt(document.getElementById("txtIdNumeroDos").value);
 	resultado=(n1*n2);
 	alert(resultado);
 }
@@ -45,7 +45,7 @@ function dividir()
 	let resultado;
 	
 	n1=parseInt(document.getElementById("txtIdNumeroUno").value);
-	n2=parseInt(document.getElementById("txtIdNumeroDos").valu);
+	n2=parseInt(document.getElementById("txtIdNumeroDos").value);
 	resultado=(n1/n2);
 	alert(resultado);
 }
