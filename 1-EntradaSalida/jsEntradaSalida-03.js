@@ -32,4 +32,3 @@ function mostrar(){
 	precio30= precio*(1.3);
 	alert("el precio de "+descripcion+" es: "+precio30);
 }
-*/
