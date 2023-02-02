@@ -32,19 +32,23 @@ c) El modulo de los numeros (el primero en modulo del segundo)
 
 */function SacarResto()
  {
-	let n1;
-	let n2;
+	let nUno;
+	let nDos;
 	let suma;
 	let promedio;
 	let resto;
 
 
-	n1=parseInt(document.getElementById("txtIdNumeroDividendo").value);
-	n2=parseInt(document.getElementById("txtIdNumeroDivisor").value);
+	nUno=parseInt(document.getElementById("txtIdNumeroDividendo").value);
+	nDos=parseInt(document.getElementById("txtIdNumeroDivisor").value);
 	
-	suma=n1+n2;
+	suma=nUno+nDos;
 	promedio= suma/2;
-	resto=n1%n2,
+	resto=nUno%nDos;
+	
+	console.log("la suma es: " +suma);
+	console.log("el promedio es: "+promedio);
+	console.log("el resto es: "+resto);
 	
 	alert("la suma es: " +suma);
 	alert("el promedio es: "+promedio);
