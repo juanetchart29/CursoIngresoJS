@@ -39,11 +39,14 @@ function PrecioFinal ()
     let nDos;
     let nTres;
     let operacion;
+    let iva;
+
+    iva=21;
 
     nUno=parseInt(document.getElementById("txtIdPrecioUno").value);
     nDos=parseInt(document.getElementById("txtIdPrecioDos").value);
     nTres=parseInt(document.getElementById("txtIdPrecioTres").value);
-    operacion=(nUno+nDos+nTres)*1.21;
+    operacion=(nUno+nDos+nTres)*iva/100+((nUno+nDos+nTres));
 
     alert(operacion);
 }
