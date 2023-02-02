@@ -6,7 +6,7 @@ ej.: "Usted se llama José y tiene 66 años" 	*/
  {	
 	let nombre;
 	let edad;
-	let mensaje
+	let mensaje;
 
 	nombre=document.getElementById("txtIdNombre").value;
 	edad=document.getElementById("txtIdEdad").value;
