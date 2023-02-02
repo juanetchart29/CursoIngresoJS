@@ -25,7 +25,8 @@ mostrar por alert:
 a) La suma de los dos numeros
 b) El promedio de los numeros
 c) El modulo de los numeros (el primero en modulo del segundo)
- */function SacarResto(){
+ */function SacarResto()
+ {
 	let n1;
 	let n2;
 	let suma;
