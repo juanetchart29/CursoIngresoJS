@@ -12,8 +12,8 @@ function Rectangulo ()
     let ancho;
     let perimetro;
     
-    largo=parseInt(document.getElementById("txtIdLargo").value);
-    ancho=parseInt(document.getElementById("txtIdAncho").value);
+    largo=parseFloat(document.getElementById("txtIdLargo").value);
+    ancho=parseFloat(document.getElementById("txtIdAncho").value);
     perimetro=2*largo+2*ancho;
 // al necesitar darle tres vueltas con el alambre 
 //hay que multipplicar el perimetro por 3 para obtener el alambre necesario
@@ -24,7 +24,7 @@ function Circulo ()
     let radio;
     let perimetro;
 
-    radio=parseInt(document.getElementById("txtIdRadio").value);
+    radio=parseFloat(document.getElementById("txtIdRadio").value);
     perimetro=2*Math.PI*radio;
 
     alert(perimetro);
@@ -36,17 +36,18 @@ function Materiales ()
     let ancho;
     let area;
 
-    largo=parseInt(document.getElementById("txtIdLargo").value);
-    ancho=parseInt(document.getElementById("txtIdAncho").value);
+    largo=parseFloat(document.getElementById("txtIdLargo").value);
+    ancho=parseFloat(document.getElementById("txtIdAncho").value);
     area=largo*ancho;
 
     alert("se requieren "+area*2+" bolsas de cemento y "+area*3+" bolsas de cal")
+}
 // si fuera para el terreno circular 
 /*    
     let radio;
     let area;
 
-    radio=parseInt(document.getElementById("txtIdRadio").value);
+    radio=parseFloat(document.getElementById("txtIdRadio").value);
     area=Math.Pi*radio*radio;
 
     alert("se requieren "+area*2+" bolsas de cemento y "+area*3+" bolsas de cal")
@@ -56,4 +57,3 @@ function Materiales ()
 
 
 
-}
