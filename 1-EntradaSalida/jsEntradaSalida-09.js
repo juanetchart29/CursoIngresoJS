@@ -7,11 +7,14 @@ en el cuadro de texto "RESULTADO".*/
 //para cambiar porcentaje linea 14
 function mostrarAumento()
 {
-	let num;
+	let numIngresado;
 	let resultado;
+	let porcentaje;
 
-	num=parseInt(document.getElementById("txtIdSueldo").value);
-	resultado=num*(1.1);
+	porcentaje=10/100
+
+	numIngresado=parseInt(document.getElementById("txtIdSueldo").value);
+	resultado=numIngresado*(porcentaje);
 
 	document.getElementById("txtIdResultado").value= resultado;
  
