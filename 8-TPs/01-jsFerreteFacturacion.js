@@ -7,43 +7,43 @@ C.	ingresar tres precios de productos  y mostrar precio final (más IVA 21%).
 */
 function Sumar () 
 {
-	let n1;
-    let n2;
-    let n3;
+	let nUno;
+    let nDos;
+    let nTres;
     let operacion;
 
-    n1=parseInt(document.getElementById("txtIdPrecioUno").value);
-    n2=parseInt(document.getElementById("txtIdPrecioDos").value);
-    n3=parseInt(document.getElementById("txtIdPrecioTres").value);
-    operacion=n1+n2+n3;
+    nUno=parseInt(document.getElementById("txtIdPrecioUno").value);
+    nDos=parseInt(document.getElementById("txtIdPrecioDos").value);
+    nTres=parseInt(document.getElementById("txtIdPrecioTres").value);
+    operacion=nUno+nDos+nTres;
 
     alert(operacion);
 }
 function Promedio () 
 {
-	let n1;
-    let n2;
-    let n3;
+	let nUno;
+    let nDos;
+    let nTres;
     let operacion;
 
-    n1=parseInt(document.getElementById("txtIdPrecioUno").value);
-    n2=parseInt(document.getElementById("txtIdPrecioDos").value);
-    n3=parseInt(document.getElementById("txtIdPrecioTres").value);
-    operacion=(n1+n2+n3)/3;
+    nUno=parseInt(document.getElementById("txtIdPrecioUno").value);
+    nDos=parseInt(document.getElementById("txtIdPrecioDos").value);
+    nTres=parseInt(document.getElementById("txtIdPrecioTres").value);
+    operacion=(nUno+nDos+nTres)/3;
      
     alert(operacion);
 }
 function PrecioFinal () 
 {
-	let n1;
-    let n2;
-    let n3;
+	let nUno;
+    let nDos;
+    let nTres;
     let operacion;
 
-    n1=parseInt(document.getElementById("txtIdPrecioUno").value);
-    n2=parseInt(document.getElementById("txtIdPrecioDos").value);
-    n3=parseInt(document.getElementById("txtIdPrecioTres").value);
-    operacion=(n1+n2+n3)*1.21;
+    nUno=parseInt(document.getElementById("txtIdPrecioUno").value);
+    nDos=parseInt(document.getElementById("txtIdPrecioDos").value);
+    nTres=parseInt(document.getElementById("txtIdPrecioTres").value);
+    operacion=(nUno+nDos+nTres)*1.21;
 
     alert(operacion);
 }
