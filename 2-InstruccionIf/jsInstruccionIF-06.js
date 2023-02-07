@@ -36,7 +36,7 @@ function mostrar()
 	}else if (edad>=13){
 		mensaje="la persona es un adolescente";
 	}else {
-		mensaje="la persona es niño";
+		mensaje="la persona es un niño";
 	}
 	alert(mensaje);
 
