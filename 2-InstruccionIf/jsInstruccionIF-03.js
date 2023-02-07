@@ -4,12 +4,18 @@ function mostrar()
 	//tomo la edad  
 	let edad;
 	let mensaje;
+
 	edad=parseInt(document.getElementById("txtIdEdad").value);
-	if(edad>=18){
+
+	if(edad>=18)
+	{
 		mensaje="La Persona es Mayor de Edad";
-	}else{
+	}
+	else
+	{
 		mensaje="La Persona es Menor de Edad";
 	}
+
 	alert(mensaje);
 
 
