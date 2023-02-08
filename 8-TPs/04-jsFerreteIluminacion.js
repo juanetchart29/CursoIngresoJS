@@ -14,11 +14,11 @@ function CalcularPrecio ()
 {
  	let cantidad;
     let marca;
-    let precio;
-    let precioTotal
-    let precioFinal;
-    let impuesto;
-    let aumento;
+    let precio;//PRECIO de cada unidad de lampara
+    let precioTotal;//PRECIO X CANTIDAD 
+    let precioFinal;//PRECIOTOTAL aplicando su respectivo descuento
+    let impuesto;//IMPUESTO si PRECIOTOTAL supera los 120
+    let aumento;//el valor que se le agrega al PRECIOFINAL por el respectivo impuesto
 
     impuesto=10;// impuesto %10
 
@@ -77,8 +77,6 @@ function CalcularPrecio ()
     {
         precioFinal=precioTotal
     }
-    
-    document.getElementById("txtIdprecioDescuento").value=precioFinal;
 
     //si supera los $120
     if (precioFinal>120)
@@ -87,4 +85,8 @@ function CalcularPrecio ()
         alert("usted esta pagando: $"+aumento+" de IIBB");
         precioFinal=precioFinal+aumento;
     }
+    //muestro el precio final con descuento y aumento(si cumple la condicion)
+    document.getElementById("txtIdprecioDescuento").value=precioFinal;
+
+    
 }
