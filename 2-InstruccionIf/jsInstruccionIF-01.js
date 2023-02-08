@@ -1,5 +1,6 @@
 //nombre: Juan Pablo Etchart
-/* function mostrar()
+/*
+ function mostrar()
 {
 	//declaro variables
 	let ingresoInt;
@@ -21,7 +22,8 @@
 	//muestro el mensaje
 	alert(mensaje);
 
-} */
+} 
+*/
 /* 
 //------------
 Ejercicio 1bis: 
