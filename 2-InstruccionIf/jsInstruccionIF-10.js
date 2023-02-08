@@ -5,7 +5,7 @@ function mostrar()
 	let numRandom;
 	let mensaje;
 
-	numRandom=Math.floor(Math.random()*11);
+	numRandom=Math.floor(Math.random()*10+1);
 
 	if (numRandom>=9)
 	{
