@@ -74,9 +74,6 @@ function CalcularPrecio ()
         }
     
     //si la cantidad es 1 o 2
-    }else 
-    {
-        precioFinal=precioTotal
     }
     precioFinal=precioTotal*(1-descuento/100)
     //si supera los $120
