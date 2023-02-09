@@ -16,13 +16,14 @@ function CalcularPrecio ()
     let marca;
     let precio;//PRECIO de cada unidad de lampara
     let precioTotal;//PRECIO X CANTIDAD 
+    let descuento;
     let precioFinal;//PRECIOTOTAL aplicando su respectivo descuento
     let impuesto;//IMPUESTO si PRECIOTOTAL supera los 120
     let aumento;//el valor que se le agrega al PRECIOFINAL por el respectivo impuesto
 
     impuesto=10;// impuesto %10
-
     precio=35;
+    descuento=0;
 
     cantidad=parseInt(document.getElementById("txtIdCantidad").value);
     marca=document.getElementById("Marca").value;
@@ -33,15 +34,16 @@ function CalcularPrecio ()
 
     if(cantidad>=6)
     {
-        precioFinal=precioTotal*0.5;//descuento del 50%
+        descuento= 50;//descuento del 50%
+
     }else if(cantidad==5)
     {
         if (marca=="ArgentinaLuz")
         {
-            precioFinal=precioTotal*0.6;
+            descuento= 40;
         }else
         {
-            precioFinal=precioTotal*0.7;
+            descuento=30;
         }
     
     //si la cantidad es 4
@@ -50,10 +52,10 @@ function CalcularPrecio ()
     {
         if(marca=="ArgentinaLuz" || marca=="FelipeLamparas")
         {
-            precioFinal=precioTotal*0.75;
+            descuento=25;
         }else
         {
-            precioFinal=precioTotal*0.8;
+            descuento=20;
         }
      
     //si la cantidad es 3    
@@ -62,22 +64,21 @@ function CalcularPrecio ()
     {
         if(marca=="ArgentinaLuz")
         {
-            precioFinal=precioTotal*0.85;
+            descuento=15;
         }else if(marca=="FelipeLamparas")
         {
-            precioFinal=precioTotal*0.9;
+            descuento=10;
         }else 
         {
-            preciofinal=precioTotal*0.95;
+            descuento=5;
         }
     
     //si la cantidad es 1 o 2
-
     }else 
     {
         precioFinal=precioTotal
     }
-
+    precioFinal=precioTotal*(1-descuento/100)
     //si supera los $120
     if (precioFinal>120)
     {
