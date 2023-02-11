@@ -1,3 +1,4 @@
+// Nombre= Juan Pablo Etchart	
 function mostrar()
 {
 	var estacionIngresada;
