@@ -13,7 +13,7 @@ function mostrar()
 			mensaje="se encuentra al Norte";
 			break;
 		case "Bariloche":
-			mensaje="Se encuentra al Sur"
+			mensaje="Se encuentra al oeste"
 			break;
 		case "Ushuaia"	:
 			mensaje="Se encuentra al Sur"
