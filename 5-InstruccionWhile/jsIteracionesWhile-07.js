@@ -5,20 +5,26 @@ e informar la suma acumulada y el promedio.
 */
 function mostrar()
 {
-	var contador;
-	var acumulador;
-	var respuesta;
+	let contador;
+	let acumulador;
+	let respuesta;
 	let numeroIngresado;
 
 	contador=0;
 	acumulador=0;
 	respuesta='si';
 
-	while(respuesta=="si"||respuesta=="SI"||respuesta=="sI"||respuesta=="Si"){
-		numeroIngresado=parseInt(prompt("Ingrese un numero"));	
-		contador+=1
+	while(respuesta=="si"||respuesta=="SI"||respuesta=="sI"||respuesta=="Si")
+	{
+		numeroIngresado=parseInt(prompt("Ingrese un numero"));
+		while(isNaN(numeroIngresado))
+		{
+			numeroIngresado=parseInt(prompt("Error, ingrese un numero"));
+		}//fin de validacion
+
+		contador+=1;
 		respuesta=prompt('ingrese "si" si quiere continuar: ')
-		acumulador+=numeroIngresado
+		acumulador+=numeroIngresado;
 	}
 
 	console.log(contador)
