@@ -13,7 +13,7 @@ function mostrar()
 	banderaDelPrimero=true;
 	respuesta='si';
 
-	while(respuesta=="si")
+	while(respuesta=="si"||respuesta=="SI"||respuesta=="sI"||respuesta=="Si")
 	{
 		numeroIngresado=parseInt(prompt("ingrese un numero: "));
 		while(isNaN(numeroIngresado))
