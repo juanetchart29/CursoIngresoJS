@@ -5,7 +5,9 @@ Al presionar el botón pedir un sexo
 function mostrar()
 {
 	var sexoIngresado;
+
 	sexoIngresado = prompt("ingrese f ó m .");
+	
 	while(sexoIngresado!="f" && sexoIngresado!="F" && sexoIngresado!="m" && sexoIngresado!="M"){
 		sexoIngresado=prompt("Error: ingrese un genero valido");
 	}
