@@ -2,7 +2,7 @@
 Nombre:Juan Pablo Etchart
 al presionar el botón mostrar 10 repeticiones 
 con números ASCENDENTE, desde el 1 al 10.*/
-function mostrar()
+/* function mostrar()
 {
 	let numero;
 
@@ -16,6 +16,56 @@ function mostrar()
 	alert("terminaron de mostrarse los numeros");
 	
 }//FIN DE LA FUNCIÓN
+ */
+
+/* While 1 bis- edad y nombre , informar el nombre de la persona mas vieja y la mas joven */
+function mostrar()
+{
+	let edad;
+	let nombre;
+	let edadMayor;
+	let downFlag;
+	let nombreMayor;
+	let nombreMenor;
+	let edadMenor;
+
+	downFlag=false;
+	alert("ingrse las edades y nombres de 5 personas")
+	for(let i=0;i<5;i++)
+	{
+		edad=parseInt(prompt("ingrese una edad valida"));
+		while(isNaN(edad)||(edad<0 || edad>123))
+		{
+			edad=parseInt(prompt("Error,ingrese una edad valida"));
+		}
+		nombre=prompt("ingrese un nombre");
+		if (downFlag==false)
+		{
+			edadMayor=edad;
+			nombreMayor=nombre;
+			edadMenor=edad;
+			nombreMenor= nombre;
+			downFlag=true;
+		}
+		else if(edad>edadMayor)
+		{
+			edadMayor=edad;
+			nombreMayor=nombre;
+		}
+		else if(edad<edadMenor)
+		{
+			edadMenor=edad;
+			nombreMenor=nombre;
+		}
+	}
+
+	alert("el nombre del mayor es: "+nombreMayor);
+	alert("el nombre del menor es: "+nombreMenor);
+}
+
+
+
+
 
 
 
