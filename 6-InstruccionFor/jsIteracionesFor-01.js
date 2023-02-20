@@ -1,4 +1,8 @@
+//Nombre: Juan Pablo Etchart
 function mostrar()
 {
-	alert("ok");
+	for(let numero=1;numero<11;numero++)
+	{
+		alert(numero);
+	}
 }

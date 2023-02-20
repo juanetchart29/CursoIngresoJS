@@ -1,5 +1,8 @@
+//nombre: JUan PAblo Etchart
 function mostrar()
 {
-
-	alert("ok");
+	for(let i=10;i>0;i--)
+	{
+		alert(i)
+	}
 }

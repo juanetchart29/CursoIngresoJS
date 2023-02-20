@@ -12,4 +12,4 @@ function mostrar()
 		sexoIngresado=prompt("Error: ingrese un genero valido");
 	}
 	txtIdSexo.value=sexoIngresado;
-}//FIN DE LA FUNCIÓN
+}
