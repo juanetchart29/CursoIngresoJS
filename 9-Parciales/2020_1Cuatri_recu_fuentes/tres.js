@@ -96,7 +96,13 @@ function mostrar()
 		if(banderaNacionalidadMasTemperatura)
 		{
 			mayorTemperatura= temperaturaIngresada;
-		}else if
+			mayorTemperaturaNacionalidad = nacionalidadIngresada;
+			banderaNacionalidadMasTemperatura = false;
+		}else if (mayorTemperatura < temperaturaIngresada)
+		{
+			mayorTemperatura= temperaturaIngresada;
+			mayorTemperaturaNacionalidad = nacionalidadIngresada;
+		}// termino punto A
 
 		if(edadIngresada>= 60 && edadIngresada>= 38)
         {
@@ -107,5 +113,10 @@ function mostrar()
 		continuo = prompt("desea Ingresar otra persona  's'/'n'")
 	}
     promedioMujeresCasadas =acumuladorMujeresCasadas / contadorMujeresCasadas;
-
+	
+    document.write("la nacionalidad de la persona con mas temperatura es"+mayorTemperaturaNacionalidad+"con"+mayorTemperatura+"<br>");
+    document.write("la cantidad de mayores de edad solters son"+contadorMayoresEdadSoltero+"<br>");
+    document.write("la cantidad dde mujeres solters o viudas son: "+contadorMujeresSolterasOViudas+"<br>");
+    document.write("cantidad de personas de mas de 60 años, que tinen mas de 38 de temperatura: "+contadorAncianosFiebre+"<br>");
+    document.write("el promedio de las mujeres casadas"+promedioMujeresCasadas+"<br>");
 }
