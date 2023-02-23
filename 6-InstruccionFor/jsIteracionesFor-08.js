@@ -1,24 +1,39 @@
-/* al presionar el botón pedir un número.
- Informar si el numero es PRIMO o no. 
-*/
-function mostrar()
-{
+/* 
+Nombre: Juan Pablo Etchart
+ al presionar el botón pedir un número.
+ Informar si el numero es PRIMO o no. */
+function mostrar() {
+
+
 	let numeroIngresado;
-	let mensaje;
+	let esPrimo;
 
-
-	mensaje="el numero es primo"
-
-	numeroIngresado=parseInt(prompt("ingrese un numero y le dire si es primo"));
-	while(isNaN(numeroIngresado))
-	{
-		numeroIngresado=parseInt(prompt(" error,ingrese un numero");
+	esPrimo = true;
+	numeroIngresado = parseInt(prompt("Ingrese un número: "));
+	while (isNaN(numeroIngresado)) {
+		numeroIngresado = parseInt(prompt("ERROR : ingresa un numero"));
 	}
-	for(let i=1;i<=numeroIngresado;i++)
+	if(numeroIngresado==0 || numeroIngresado==1)
 	{
-		if(i!=1 && numeroIngresado!=i);
-		{
-			
-		}
-	} 
+		esPrimo=false;
+	}
+	else
+	{
+		for (let i = 2; i <= numeroIngresado / 2; i++) 
+			{
+				if (numeroIngresado % i === 0) 
+				{
+					esPrimo = false;
+					break;
+				}
+			}
+
+	}
+	
+	if (esPrimo == true) {
+		alert("es primo");
+	} else {
+		alert("no es primo");
+	}
+
 }//FIN DE LA FUNCIÓN
