@@ -86,7 +86,7 @@ function mostrar()
         {
             mayorTemperatura = temperaturaIngresada ;
             nombreMayorTemperatura = nombreIngresado;
-            banderaMasTemperatura = false
+            banderaMasTemperatura = false;
 
         }else if(mayorTemperatura < temperaturaIngresada)
         {
