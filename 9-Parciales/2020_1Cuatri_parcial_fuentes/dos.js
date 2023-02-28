@@ -17,9 +17,9 @@ function mostrar()
   let edad;
   let nombre;
 
-  let banderaMasGrandeGato=true;
-  let edadMasGrandeGato;
-  let nombreMasGrandeGato;
+  let banderaGato=true;
+  let mayorEdadGato;
+  let mayorNombreGato;
 
 
   let banderaMasGrandePerro=true;
@@ -70,7 +70,7 @@ function mostrar()
     {
       case"gato":
         edad=parseInt(prompt("ingrese una edad valida"));
-        while(isNaN(edad) || edad < 0 || edad > 21)
+        while(isNaN(edad) || edad < 1 || edad > 20)
         {
             edad=parseInt(prompt("Error,ingrese una edad valida"));
         }//fin del while
@@ -81,15 +81,16 @@ function mostrar()
             razaGato=prompt(" error, ingrese el animl: siames , turco , Peterbald y generico");
             
         }
-        if(banderaMasGrandeGato)
+
+        if(banderaGato)
         {
-          edadMasGrandeGato=edad;
-          nombreMasGrandeGato=nombre;
-          banderaMasGrandeGato=false;
-        }else if (edadMasGrandeGato<edad)
+          mayorEdadGato=edad;
+          mayorNombreGato=nombre;
+          banderaGato=false;
+        }else if (mayorEdadGato<edad)
         {
-          edadMasGrandeGato=edad;
-          nombreMasGrandeGato=nombre;
+          mayorEdadGato=edad;
+          mayorNombreGato=nombre;
         }
         switch(razaGato)
         {
@@ -177,30 +178,30 @@ function mostrar()
         }
         break;
     }//fin del switch
-   
- }//fin del for
- if (contadorGenerico>comparador)
-  {
+    if (contadorGenerico>comparador)
+    {
     razaGato="generico";
     comparador=contadorGenerico;
     promedioEdadMasViejo=acumuladorEdadGenerico/contadorGenerico;
-  }else if (contadorPeterbald>comparador)
-  {
+    }else if (contadorPeterbald>comparador)
+    {
     razaGato="Peterbald";
     comparador=contadorPeterbald;
     promedioEdadMasViejo=acumuladorEdadPeterbald/contadorPeterbald;
-  }else if (contadorTurco>comparador)
-  {
+    }else if (contadorTurco>comparador)
+    {
     razaGato="Turco";
     comparador=contadorTurco;
     promedioEdadMasViejo=acumuladorEdadTurco/contadorTurco;
-  }else if (contadorSiames>comparador)
-  {
+    }else if (contadorSiames>comparador)
+    {
     razaGato="siames";
     comparador=contadorSiames;
     promedioEdadMasViejo=acumuladorEdadSiames/contadorSiames;
-  }  
- document.write("el mas viejo de los gatos es:"+nombreMasGrandeGato+"<br>");
+    }  
+ 
+ }//fin del for
+ document.write("el mas viejo de los gatos es:"+mayorNombreGato+"<br>");
  document.write("el mas viejo de los Perros es:"+nombreMasGrandePerro+"<br>");
  document.write("el mas viejo de los Pajaros es:"+nombreMasGrandePajaro+"<br>");
  document.write("el mas viejo de Otros es:"+nombreMasGrandeOtro+"<br>");

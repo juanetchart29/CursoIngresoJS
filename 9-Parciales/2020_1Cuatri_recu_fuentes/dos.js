@@ -10,7 +10,7 @@ b)Informar el precio total de la venta del día.
 c)El nombre de la película con menos cantidad de entradas.
 d)El tipo de pelicula más vista y la cantidad de entradas. 
 e)El nombre de la pelicula más barata en 3D. 
-*/
+
 function mostrar()
 {
   let nombrePelicula;
@@ -127,12 +127,13 @@ function mostrar()
   {
     tipoMasVisto=" se vieron igual cantidad de peliculas 3d y 4d"
   }
+  
   document.write("el nombre de la peliculas mas cara 4d"+nombrePeliculaMasCara4D+"<br>");
   document.write("preciuo total de hoy"+acumuladorPrecioTotal+"<br>");
   document.write("el nombre de la pelicula con menos cantidad de entradas"+nombrePeliculaMenosCantidadEntrada+"<br>");
   document.write("el tipo de pelicula mas visto es"+tipoMasVisto+"con un total de "+acumuladorFinal+"<br>");
   document.write("el nombre de la pelicula mas barata es"+nombrePeliculaMasBarata3D+"<br>");
-}
+}*/
 /* 
 
       Tipo validad("arena";"cal";"cemento")

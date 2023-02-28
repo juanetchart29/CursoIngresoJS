@@ -156,28 +156,51 @@ function mostrar()
         }
 
         
-        if(acumuladorAfrica>comparador)
+        /* if(acumuladorAfrica>comparador)
         {
             comparador=acumuladorAfrica;
             continenteMasHabitantes=continente;
 
-        }else if(acumuladorOceania>comparador)
+        }
+        if(acumuladorOceania>comparador)
         {
             comparador=acumuladorOceania;
             continenteMasHabitantes=continente;
-        }else if (acumuladorAmerica>comparador)
+        }
+        if (acumuladorAmerica>comparador)
         {
             comparador=acumuladorAmerica;
             continenteMasHabitantes=continente;
-        }else if(acumuladorAsia>comparador)
+        }
+        if(acumuladorAsia>comparador)
         {
             comparador=acumuladorAsia;
             continenteMasHabitantes=continente;
-        }else if(acumuladorEuropa>comparador)
+        }
+        if(acumuladorEuropa>comparador)
         {
             comparador=acumuladorEuropa;
             continenteMasHabitantes=continente;
+        } */
+                   //6                 //10             //6         //3                     //6             //8                 //6             //13
+        if(acumuladorAfrica> acumuladorOceania && acumuladorAfrica>acumuladorAmerica && acumuladorAfrica>acumuladorEuropa && acumuladorAfrica>acumuladorAsia)
+        {
+            continenteMasHabitantes="Africa";
+        }               
+        else if(acumuladorOceania>acumuladorAmerica && acumuladorOceania>acumuladorAsia && acumuladorOceania>acumuladorEuropa)
+        {
+            continenteMasHabitantes="oceania";
+        }else if(acumuladorEuropa>acumuladorAmerica && acumuladorEuropa>acumuladorAsia)
+        {
+            continenteMasHabitantes="Europa";
+        }else if(acumuladorAmerica>acumuladorAsia)
+        {
+            continenteMasHabitantes="America";
+        }else
+        {
+            continenteMasHabitantes="Asia";
         }
+        
 
         contadorVueltas+=1;
         acumuladorCantidadDeHabitantes+=cantidadDeHabitantes;

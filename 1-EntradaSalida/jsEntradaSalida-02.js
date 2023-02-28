@@ -1,7 +1,7 @@
 /*
 Juan Pablo Etchart
 Debemos lograr tomar un nombre con 'prompt' 
-y luego mostrarlo por 'alert' al presionar el botón  'mostrar'*/
+y luego mostrarlo por 'alert' al presionar el botón  'mostrar'
 
 function mostrar()
 {
@@ -11,7 +11,7 @@ function mostrar()
 	
 	alert(nombrePersona);   
 }
-
+*/
 /*
 //concatenar dos variables 
 function mostrar(){
@@ -22,3 +22,8 @@ function mostrar(){
 	alert("el nombre completo es: "+ nombrePersona +" "+ apellidoPersona)
 }
 */
+//MODELO DE PARCIAL 28/2
+function mostrar()
+{
+	
+}
