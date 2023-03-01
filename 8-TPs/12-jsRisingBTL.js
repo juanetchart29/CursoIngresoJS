@@ -1,4 +1,7 @@
-/*RISING BTL. Empresa dedicada a la toma de datos para realizar estadísticas y censos nos pide realizar una carga de datos validada e ingresada por ventanas emergentes solamente (para evitar hacking y cargas maliciosas) y luego asignarla a cuadros de textos. 
+/*RISING BTL. Empresa dedicada a la toma de datos para realizar 
+estadísticas y censos nos pide realizar una carga de datos 
+validada e ingresada por ventanas emergentes solamente (para evitar hacking y cargas maliciosas) 
+y luego asignarla a cuadros de textos. 
 12.   Los datos requeridos son los siguientes:
 A.	Edad, entre 18 y 90 años inclusive.
 B.	Sexo, “M” para masculino y “F” para femenino
@@ -9,62 +12,76 @@ F.	Nacionalidad, “A” para argentinos, “E” para extranjeros, “N” para
  */
 function ComenzarIngreso () 
 {
- 	//definicion de variables
- 	let edadIngresada;
- 	let sexoIngresado;
- 	let estadoCivilIngresado;
-	let sueldoBruto;
-	let legajo;
+	let edad;
+	let sexo;
+	let estadoCivil;
+	let sueldo;
+	let numLegajo;
 	let nacionalidad;
 
-	edadIngresada=parseInt(prompt("ingrese una edad valida(18-90)"));
-	while(isNaN(edadIngresada) || edadIngresada<18 || edadIngresada>90)// or while (!(edadIngresada>=18 || edadIngresada<=90))
+	
+	edad=parseInt(prompt("ingrese la edad"))
+	while(isNaN(edad) || edad<18 || edad>90)
 	{
-		edadIngresada=parseInt(prompt("Error,ingrese una edad valida"))
-	}//fin de validaccion edad
-	sexoIngresado=prompt("Ingrese un genero M/F");
-	while(sexoIngresado=="m"||sexoIngresado=="M"||sexoIngresado=="f"||sexoIngresado=="F")
+		edad=parseInt(prompt("error,ingrese la edad"));
+	}
+	sexo=prompt("ingrese el sexo 'm'/'f'")
+	while(sexo != "m" && sexo != "f")
 	{
-		sexoIngresado=prompt("ingrese un genero valido");
-	}//fin de validacion sexo
-	estadoCivilIngresado=parseInt(prompt("Ingrese un estado civil"+"<br>"+"-para soltero, 2-para casados, 3-para divorciados y 4-para viudos"))
-	while (isNaN(estadocivilIngresado) ||(estadoCivilIngresado!=1 && estadoCivilIngresado!=2 && estadoCivilIngresado!=3 && estadoCivilIngresado!=4))
+		sexo=prompt("error,ingrese el sexo 'm'/'f'");
+	}
+	estadoCivil=parseInt(prompt("ingrese el estado civil  1-para soltero, 2-para casados, 3-para divorciados y 4-para viudos"));
+	while(estadoCivil<1 || estadoCivil>4)
 	{
-		estadoCivilIngresado=parseInt(prompt("Error, ingresar un numero valido"))
-	}// fin de validacion estado civil
-	switch(estadoCivilIngresado)
+		estadoCivil=parseInt(prompt(" error,ingrese el estado civil  1-para soltero, 2-para casados, 3-para divorciados y 4-para viudos"));
+	}
+	sueldo= parseInt(prompt("ingrese el sueldo bruto"));
+	while(isNaN(sueldo) || sueldo<8000)
 	{
+		sueldo= parseInt(prompt("error,ingrese el sueldo bruto"));
+	}
+	numLegajo=parseInt(prompt("ingrese le numero de legajo"));
+	while (isNaN(numLegajo) || numLegajo<1000)
+	{
+		numLegajo=parseInt(prompt("error,ingrese le numero de legajo"));
+	}
+	nacional=prompt("ingrese la nacionalidad “A” para argentinos, “E” para extranjeros, “N” para nacionalizados.");
+	while(nacionalidad!="A" && nacionalidad!="E" && nacionalidad!="N")
+	{
+		nacional=prompt("error,ingrese la nacionalidad “A” para argentinos, “E” para extranjeros, “N” para nacionalizados.");
+	}
+	switch(nacionalidad)
+	{
+		case "A":
+			nacionalidad="Argentino"
+			break;
+		case "E":
+			nacionalidad="extrangero/a"
+			break;
+		case "N":
+			nacionalidad="nacionalizado/a"
+			break;
+
+	}
+	switch (estadoCivil) {
 		case 1:
-			estadoCivilIngresado="soltero";
+			estadoCivil="soltero";
 			break;
 		case 2:
-			estadoCivilIngresado="casados";
+			estadoCivil="casado";
 			break;
 		case 3:
-			estadoCivilIngresado="divorciados";
+			estadoCivil="divorciado";
 			break;
 		case 4:
-			estadoCivilIngresado="viudos";
+			estadoCivil="viudo";
 			break;
 	}
-	sueldoBruto=parseInt(prompt("ingrese un sueldo bruto(no menor a 8000)"));
-	while(isNaN(sueldoBruto) || (sueldoBruto<8000))
-	{
-		sueldoBruto=parseInt(prompt("Error, ingresar un numero valido"));
-	}//fin de validacion sueldo bruto
-	legajo=parseInt(prompt("ingrese un numero de legajo valido(4 cifras)"));
-	while()
-
-
-
-
-
-
-	document.getElementById("txtIdEdad").value=edadIngresada;
-	document.getElementById("txtIdSexo").value=
-	document.getElementById("txtIdEstadoCivil").value=
-	document.getElementById("txtIdSueldo").value=
-	document.getElementById("txtIdLegajo").value=
-	document.getElementById("txtIdNacionalidad").value=
-
+	document.getElementById("txtIdEdad").value=edad
+	document.getElementById("txtIdSexo").value=sexo
+	document.getElementById("txtIdSueldo").value=sueldo
+	document.getElementById("txtIdNacionalidad").value=nacionalidad
+	document.getElementById("txtIdEstadoCivil").value=estadoCivil
+	document.getElementById("txtIdLegajo").value=numLegajo
+	
 }
