@@ -1,3 +1,5 @@
+// ejercicios reechos manera del parcial
+// ejercicio parcial 1 biss
 /* arcial 1 2020 bis: /"Super chino" 
 Se pide el ingreso de mercadería de un supermercado , 
 hasta que el usuario quiera,se pide :
@@ -7,12 +9,222 @@ importe del producto (no mayor a 1000 pesos)
 procedencia(importado, nacional, elaborado)
 Peso (no mayor a 30 kilos)
 informar SOLO SI HAY
+// a) el NOMBRE del mas pesado de los comestibles
+// b) el NOMBRE del mas caro de todos los productos
+// c) el NOMBRE del mas barato de los elaborados
+// d)el tipo de mercadería que mas aparece
+// e)el porcentaje de productos elaborados por sobre el total
+// f) el promedio de pesos por cada tipo ingresado*/ 
+function mostrar()
+{
+  let tipoProducto;
+  let nombre;
+  let precio;
+  let procedencia;
+  let peso;
+  let sigue="s";
+
+  let nomPesado;
+  let pesoPesado;
+
+  let banderaBarato=true;
+  let nomBarato;
+  let precioBarato;
+  
+  let nomCaro;
+  let precioCaro;
+
+  let contLimpieza=0;
+  let contComestible=0;
+  let contOtros=0;
+
+  let acumPrecioLim=0;
+  let acumPrecioCom=0;
+  let acumPrecioOtro=0;
+  
+  let tipoMasAparece;
+  let porcentElaborados;
+  let contElaborados=0;
+
+  let promedioComestible;
+  let promedioLimpieza;
+  let promedioOtro;
+
+  while(sigue == "s")
+  {
+    //----------------------------ingreso y validacion
+    tipoProducto=prompt("ingrese el tipo de producto limpieza , comestible , otros");
+    while(tipoProducto!= "limpieza" && tipoProducto!= "comestible" && tipoProducto!="otros")
+    {
+      tipoProducto=prompt("error,ingrese el tipo de producto limpieza , comestible , otros");
+    }
+    nombre=prompt("ingrese el nombre del producto");
+    while(!isNaN(parseInt(nombre)))
+    {
+        nombre=prompt("error,ingrese un nombre  valido");
+    }
+    precio=parseInt(prompt("ingrese un  iporte"));//entero
+    while(isNaN(precio)|| precio>1000)
+    {
+        precio=parseInt(prompt("Error,ingrese un iporte valido"));
+    }//fin del while
+    procedencia=prompt("ingrese una procedencia: importado, nacional, elaborado")
+    while(procedencia!= "importado" && procedencia!= "nacional" && procedencia!="elaborado")
+    {
+      procedencia=prompt("error,ingrese el tipo de producto importado , nacional , elaborado");
+    }
+    peso=parseInt(prompt("ingrese la peso"))
+    while(isNaN(peso) || peso>30)
+    {
+        peso=parseInt(prompt("error, ingrese una peso valida"))
+    }
+
+    //---------------------logica
+        // b) el NOMBRE del mas caro de todos los productos
+    if((contComestible==0 && contLimpieza==0 && contOtros==0)||precioCaro<precio)
+    {
+      nomCaro=nombre;
+      precioCaro=precio
+    }
+        
+    switch(tipoProducto)
+    {
+      case "comestible":
+        // a) el NOMBRE del mas pesado de los comestibles
+        if(contComestible==0||pesoPesado<peso)
+        {
+          nomPesado=nombre;
+          pesoPesado=peso;
+        }
+        acumPrecioCom+=precio;
+        contComestible+=1;
+        break;
+      case "limpieza":
+        acumPrecioLim+=precio;
+        contLimpieza+=1;
+        break;
+      case "otros":
+        acumPrecioOtro+=precio;
+        contOtros+=1;
+        break;
+    }
+     // c) el NOMBRE del mas barato de los elaborados
+    if(procedencia=="elaborado")
+    {
+      contElaborados+=1;
+      if(banderaBarato || precioBarato>precio)
+      {
+        nomBarato=nombre;
+        precioBarato=precio;
+        banderaBarato=false;
+      }
+    }
+
+    // //----------------------sigue 
+    sigue=prompt("desea seguir ingresando? s/n");
+  }//fin while --------------------------------------------------------------
+    // d)el tipo de mercadería que mas aparece
+  if(contLimpieza>contComestible && contLimpieza>contOtros)
+  {
+      tipoMasAparece="limpieza"
+  }else if(contComestible>contOtros)
+  {
+      tipoMasAparece="comestible"
+  }else 
+  {
+      tipoMasAparece="Otros"
+  }
+    // e)el porcentaje de productos elaborados por sobre el total
+  
+  porcentElaborados=contElaborados*100/(contComestible+contLimpieza+contOtros)
+  if(porcentElaborados==0)
+  {
+    console.log("no se ingresaron productos 'elaborados' ");
+  }else 
+  {
+    console.log("el promedio de los elaborados es:  "+porcentElaborados);
+  }
+  // f) el promedio de pesos por cada tipo ingresado
+  promedioComestible=acumPrecioCom/contComestible;
+  promedioLimpieza=acumPrecioLim/contLimpieza;
+  promedioOtro=acumPrecioOtro/contOtros;
+  if(contComestible!=0)
+  {
+    console.log("el nombre del mas pesado de los comestibles  es: "+nomPesado);
+    console.log("el promedio de pesos en los comestibles es de: "+promedioComestible);
+  }else 
+  {
+    console.log("no se ingresaron del tipo comestible");
+  }
+  if(contLimpieza!=0)
+  {
+    console.log("el promedio de limpieza es: "+promedioLimpieza);
+  }else
+  {
+    console.log("no se ingresaron del tipo limpieza");
+  }
+  if(contOtros!=0)
+  {
+    console.log("el promedio del tipo otros es: "+promedioOtro);
+  }else
+  {
+    console.log("no se ingresaron del tipo otro");
+  }
+  console.log("el nombre del mas caro de todos los productos es: "+nomCaro);
+  console.log("el tipo de mercaderia que mas aparece es: "+tipoMasAparece);
+
+}
+
+// a) el NOMBRE del mas pesado de los comestibles
+// b) el NOMBRE del mas caro de todos los productos
+// c) el NOMBRE del mas barato de los elaborados
+// d)el tipo de mercadería que mas aparece
+// e)el porcentaje de productos elaborados por sobre el total
+// f) el promedio de pesos por cada tipo ingresado
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* arcial 1 2020 bis: /"Super chino" 
+Se pide el ingreso de mercadería de un supermercado , 
+hasta que el usuario quiera,se pide :
+tipo(limpieza , comestible , otros)solo estos tres tipos
+nombre del producto
+precio del producto (no mayor a 1000 pesos)
+procedencia(importado, nacional, elaborado)
+Peso (no mayor a 30 kilos)
+informar SOLO SI HAY
 a) el NOMBRE del mas pesado de los comestibles
 b) el NOMBRE del mas caro de todos los productos
 c) el NOMBRE del mas barato de los elaborados
 d)el tipo de mercadería que mas aparece
 e)el porcentaje de productos elaborados por sobre el total
-f) el promedio de pesos por cada tipo ingresado/ */
+f) el promedio de pesos por cada tipo ingresado/ 
 
 function mostrar()
 {
@@ -177,7 +389,7 @@ function mostrar()
 }
 
 
-
+*/
 
 
 /*
