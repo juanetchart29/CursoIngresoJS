@@ -1,3 +1,207 @@
+// hecho de nuevo
+/*  Parcial 2020 3 bis: /* "Mapa Mundi"
+Realizar el algoritmo que permita ingresar 5 paises:
+el continente (validar entre America , Asia , Europa ,Africa y Oceania) 
+
+el nombre del país, 
+
+cantidad de habitantes en millones entre 1 y 7000 (validar)
+
+el nivel de pobresa entre (pobre, rico, millonario) en europa no hay paises pobre(validar)
+
+la temperaruta mínima que se registra en su territorio(entre -50 y 50)
+a)La cantidad de temperaturas pares.
+b)la cantidad de temperaturas impares de europa
+c)El nombre del pais con menos habitantes
+d)la cantidad de paises que superan los 40 grados.
+e)la cantidad de paises de america que tienen menos de 0 grados .
+f)el promedio de habitantes entre los paises ingresados .
+g)el promedio de habitantes entre los paises que superan los 40 grados
+H) la temperatura mínima ingresada, y nombre del pais que registro esa temperatura. 
+i) que continente tiene mas habitantes.*/
+function mostrar()
+{
+    let continente;
+    let nombre;
+    let cantHabitantes;
+    let nivPobreza;
+    let temp;
+
+    let contTempPar=0;
+    
+    let contTempImparEu=0;
+     
+    let nombrePaisMenosCant;
+    let menosCan; 
+
+    let promedioSuperanCuarenta
+    let contSuperan=0;
+    let acumHabitantesSuperan=0;
+
+    
+    let contAmericaBajoCero=0;
+    
+    let promedioHabitantes;
+    let contTotal=0;  
+
+    let tempMinima;
+    let nombreTempMinima;
+
+    let acumAsia=0;
+    let acumAmerica=0;
+    let acumEuropa=0;
+    let acumOceania=0;
+    let acumAfrica=0;
+
+    let continenteMasHabitante;
+
+    for (let i = 0; i<5; i++)
+    {
+        //----------------------------ingreso y validacion
+        continente=prompt("ingrese el contintente: america , asia , europa y africa ")
+        while(continente!="america" && continente!="asia" && continente!="europa" && continente!="africa" && continente!="oceania")
+        {
+            continente=prompt("error, ingrese un contintente: america , asia , europa y africa  valido")
+        }//fin validacion
+        nombre=prompt("ingrese el nombre del pais");
+        while(!isNaN(parseInt(nombre)))
+        {
+            nombre=prompt("error,ingrese un nombre valido");
+        }
+        cantHabitantes=parseInt(prompt("ingrese la cantidad de habitantes"))
+        while(isNaN(cantHabitantes) || cantHabitantes<1 || cantHabitantes>7000)
+        {
+            cantHabitantes=parseInt(prompt("error, ingrese una cantidad de habitantes valida"))
+        }
+        nivPobreza=prompt("ingrese el nivel de pobreza: pobre, rico, millonario")
+        while(nivPobreza!="pobre" && nivPobreza!="rico" && nivPobreza!="millonario" )
+        {
+            nivPobreza=prompt("error, ingrese un nivel de pobreza : pobre, rico, millonario ")
+        }//fin validacion
+        temp=parseInt(prompt("ingrese la temperatura"))
+        while(isNaN(temp) || temp<-50|| temp>50)
+        {
+            temp=parseInt(prompt("error, ingrese una temperatura valida"))
+        }
+        //---------------------logica
+        // H) la temperatura mínima ingresada, y nombre del pais que registro esa temperatura. 
+        if((acumAfrica+acumAmerica+acumAsia+acumEuropa+acumAmerica+acumOceania)==0 || tempMinima>temp)
+        {
+            tempMinima=temp;
+            nombreTempMinima=nombre;
+        }
+        // a)La cantidad de temperaturas pares.
+        if(temp%2==0)
+        {
+            contTempPar+=1;
+        }
+        // d)la cantidad de paises que superan los 40 grados.
+        if(temp>40)
+        {
+            contSuperan+=1
+            acumHabitantesSuperan+=cantHabitantes;
+        }
+
+        // c)El nombre del pais con menos habitantes
+        if((acumAfrica+acumAmerica+acumAsia+acumEuropa+acumAmerica+acumOceania)==0 || menosCan>cantHabitantes)
+        {
+            menosCan=cantHabitantes;
+            nombrePaisMenosCant=nombre;
+        }
+
+        switch(continente)
+        {
+            case "africa":
+                acumAfrica+=cantHabitantes;
+                break;
+            case "america":
+                // e)la cantidad de paises de america que tienen menos de 0 grados
+                if(temp<0)
+                {
+                    contAmericaBajoCero+=1;
+                }
+                acumAmerica+=cantHabitantes;
+                break;
+            case "asia":
+                acumAsia+=cantHabitantes;
+                break;
+
+            case "europa":
+                // b)la cantidad de temperaturas impares de europa
+                if(temp%2!=0)
+                {
+                    contTempImparEu+=1;
+                }
+                acumEuropa+=cantHabitantes;
+                break;
+            case "oceania":
+                acumOceania+=cantHabitantes;
+                break;
+        }
+
+        contTotal+=1;
+    }//find el for
+    // f)el promedio de habitantes entre los paises ingresados .
+    promedioHabitantes=(acumAfrica+acumAmerica+acumAsia+acumEuropa+acumOceania)/contTotal;
+    if(acumAfrica>acumAmerica && acumAfrica>acumAsia && acumAfrica>acumEuropa && acumAfrica>acumOceania)
+    {
+        continenteMasHabitante="Africa";
+    }else if(acumAmerica>acumAsia && acumAmerica>acumEuropa && acumAmerica>acumOceania)
+    {
+        continenteMasHabitante="America";
+    }else if(acumAsia>acumEuropa && acumAsia>acumOceania)
+    {
+        continenteMasHabitante="Asia";
+    }else if(acumEuropa>acumOceania)
+    {
+        continenteMasHabitante="Europa";
+    }else
+    {
+        continenteMasHabitante="Oceania";
+    }
+    console.log("la cantidad de temperaturas pares es: "+contTempPar);
+    if(acumEuropa!=0)
+    {
+        console.log("la canidad de paises con temperatura impar en europa es: "+contTempImparEu);
+    }else
+    {
+        console.log("no se ingresaron paises en europa");
+    }
+    console.log("el nombre del pais con menso habitantes es:  "+nombrePaisMenosCant);
+    console.log("la cantidad de paises que superan los 40 grados es: "+contSuperan);
+    promedioSuperanCuarenta=acumHabitantesSuperan/contSuperan;
+    if(contSuperan!=0)
+    {
+        console.log("el promedio de habitantes en paises que superan los 40 "+promedioSuperanCuarenta);
+    }else 
+    {
+        console.log("no se ingresaron paises que superen  los 40 grados");
+    }
+    console.log("la cantidad de paises america que tienen menos de 0 grados: "+contAmericaBajoCero);
+    console.log("el promedio de habitantes entre los paiese ingresados es: "+promedioHabitantes);
+    console.log("la temperatura minima ingresada y el nombre del pais: "+nombreTempMinima+nombreTempMinima);
+    console.log("que contintente tiene mas habitantes"+continenteMasHabitante);
+
+} 
+// a)La cantidad de temperaturas pares.
+// b)la cantidad de temperaturas impares de europa
+// c)El nombre del pais con menos habitantes
+// d)la cantidad de paises que superan los 40 grados.
+// e)la cantidad de paises de america que tienen menos de 0 grados .
+// f)el promedio de habitantes entre los paises ingresados .
+// g)el promedio de habitantes entre los paises que superan los 40 grados
+// H) la temperatura mínima ingresada, y nombre del pais que registro esa temperatura. 
+// i) que continente tiene mas habitantes
+
+
+
+
+
+
+
+
+
+
 /*  Parcial 2020 3 bis: /* "Mapa Mundi"
 Realizar el algoritmo que permita ingresar 5 paises:
 el continente (validar entre America , Asia , Europa ,Africa y Oceania) 
@@ -16,7 +220,7 @@ H) la temperatura mínima ingresada, y nombre del pais que registro esa temperat
 i) que continente tiene mas habitantes.*/ 
 
 
-function mostrar()
+/* function mostrar()
 {
     let continente;
     let nombre;
@@ -156,32 +360,32 @@ function mostrar()
         }
 
         
-        /* if(acumuladorAfrica>comparador)
-        {
-            comparador=acumuladorAfrica;
-            continenteMasHabitantes=continente;
+        // if(acumuladorAfrica>comparador)
+        // {
+        //     comparador=acumuladorAfrica;
+        //     continenteMasHabitantes=continente;
 
-        }
-        if(acumuladorOceania>comparador)
-        {
-            comparador=acumuladorOceania;
-            continenteMasHabitantes=continente;
-        }
-        if (acumuladorAmerica>comparador)
-        {
-            comparador=acumuladorAmerica;
-            continenteMasHabitantes=continente;
-        }
-        if(acumuladorAsia>comparador)
-        {
-            comparador=acumuladorAsia;
-            continenteMasHabitantes=continente;
-        }
-        if(acumuladorEuropa>comparador)
-        {
-            comparador=acumuladorEuropa;
-            continenteMasHabitantes=continente;
-        } */
+        // }
+        // if(acumuladorOceania>comparador)
+        // {
+        //     comparador=acumuladorOceania;
+        //     continenteMasHabitantes=continente;
+        // }
+        // if (acumuladorAmerica>comparador)
+        // {
+        //     comparador=acumuladorAmerica;
+        //     continenteMasHabitantes=continente;
+        // }
+        // if(acumuladorAsia>comparador)
+        // {
+        //     comparador=acumuladorAsia;
+        //     continenteMasHabitantes=continente;
+        // }
+        // if(acumuladorEuropa>comparador)
+        // {
+        //     comparador=acumuladorEuropa;
+        //     continenteMasHabitantes=continente;
+        // }
                    //6                 //10             //6         //3                     //6             //8                 //6             //13
         if(acumuladorAfrica> acumuladorOceania && acumuladorAfrica>acumuladorAmerica && acumuladorAfrica>acumuladorEuropa && acumuladorAfrica>acumuladorAsia)
         {
@@ -219,7 +423,7 @@ function mostrar()
     document.write("el continente que mas habitantes tiene es "+continenteMasHabitantes+"<br>"); 
     
     
-}
+} */
 
 
 

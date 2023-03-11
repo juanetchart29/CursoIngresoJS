@@ -15,7 +15,7 @@ informar SOLO SI HAY
 // d)el tipo de mercadería que mas aparece
 // e)el porcentaje de productos elaborados por sobre el total
 // f) el promedio de pesos por cada tipo ingresado*/ 
-function mostrar()
+/* function mostrar()
 {
   let tipoProducto;
   let nombre;
@@ -142,7 +142,7 @@ function mostrar()
     console.log("no se ingresaron productos 'elaborados' ");
   }else 
   {
-    console.log("el promedio de los elaborados es:  "+porcentElaborados);
+    console.log("el promedio de los elaborados es:  %"+porcentElaborados);
   }
   // f) el promedio de pesos por cada tipo ingresado
   promedioComestible=acumPrecioCom/contComestible;
@@ -174,7 +174,7 @@ function mostrar()
   console.log("el tipo de mercaderia que mas aparece es: "+tipoMasAparece);
 
 }
-
+ */
 // a) el NOMBRE del mas pesado de los comestibles
 // b) el NOMBRE del mas caro de todos los productos
 // c) el NOMBRE del mas barato de los elaborados
@@ -183,6 +183,137 @@ function mostrar()
 // f) el promedio de pesos por cada tipo ingresado
 
 
+//parcial 1 
+/* Enunciado:
+
+Debemos realizar la carga de 5(cinco) productos de prevención de contagio,
+de cada una debo obtener los siguientes datos:
+el tipo (validar "barbijo" , "jabón" o "alcohol") ,
+el precio (validar entre 100 y 300),
+la cantidad de unidades (no puede ser 0 o negativo y no debe superar las 1000 unidades),
+la Marca y el fabricante.
+Se debe Informar al usuario lo siguiente:
+a) Del más barato de los alcohol, la cantidad de unidades y el fabricante
+b) Del tipo con mas unidades, el promedio por compra
+c) Cuántas unidades de jabones hay en total */
+function mostrar()
+{
+  let tipo;
+  let precio;
+  let cant;
+  let marca;
+  let fabricante;
+
+
+  let baratoAlcohol;
+  let baratoFabricante;
+
+  let masUnidades;
+  let promedio;
+  let acumCantBarbijo=0;
+  let acumCantJabon=0;
+  let acumCantAlcohol=0;
+  let acumPrecioBarbijo=0;
+  let acumPrecioJabon=0;
+  let acumPrecioAlcohol=0;
+  
+  let contBarbijo=0;
+  let contJabon=0;
+  let contAlcohol=0;
+
+  for(let i=0;i<5;i++)
+  {
+    //----------------------------ingreso y validacion
+    tipo=prompt('ingrese el tipo de producto: "barbijo" , "jabon" o "alcohol"');
+    while(tipo!="jabon" && tipo!= "barbijo" && tipo!= "alcohol")
+    {
+        tipo=prompt('error,ingrese el tipo de producto: "barbijo" , "jabon" o "alcohol"');
+    }
+    precio=parseInt(prompt("ingrese la precio"))
+    while(isNaN(precio) || precio<100 || precio>300)
+    {
+        precio=parseInt(prompt("error, ingrese una precio valido"))
+    }
+    cant=parseInt(prompt("ingrese la cant"))
+    while(isNaN(cant) || cant<0 || cant>1000)
+    {
+        cant=parseInt(prompt("error, ingrese una cantidad valida"))
+    }
+    marca=prompt("ingrese la marca")
+    while(!isNaN(parseInt(marca)))
+    {
+      marca=prompt("error,ingrese una marca correcta") 
+    }
+    fabricante=prompt("ingrese la fabricante")
+    while(!isNaN(parseInt(fabricante)))
+    {
+      fabricante=prompt("error,ingrese una fabricante correcta") 
+    }
+//logica-----
+
+    switch(tipo)
+    {
+      case "alcohol":
+        
+        if(contAlcohol==0||baratoAlcohol>precio)
+        {
+          baratoAlcohol=precio;
+          baratoFabricante=fabricante;
+        }
+        acumPrecioAlcohol+=precio;
+        acumCantAlcohol+=cant;
+        contAlcohol+=1;
+        break;
+      case "barbijo":
+        contBarbijo+=1;
+        acumCantBarbijo+=cant;
+        acumPrecioBarbijo+=precio;
+        break;
+
+      case "jabon":
+        // c) Cuántas unidades de jabones hay en total */
+        contJabon+=1;
+        acumCantJabon+=cant;
+        acumPrecioJabon+=precio;
+        break;
+
+    }
+    //---------------------- y contadores y acumuladores
+  }// fin del for
+  if(contAlcohol>contBarbijo && contAlcohol>contJabon)
+  {
+    masUnidades="alcohol";
+    promedio=acumPrecioAlcohol/contAlcohol;
+  }else if(contBarbijo>contJabon)
+  {
+    masUnidades="barbijo";
+    promedio=acumPrecioBarbijo/contBarbijo
+
+  }else 
+  {
+    masUnidades="jabon"
+    promedio=acumPrecioJabon/contJabon;
+  }
+  if(contAlcohol!=0)
+  {
+    console.log("la cantidad del mas barato y el fabricante son: "+mas);
+  }else
+  {
+    console.log("no se ingreso ninguna compra de lacohol");
+    
+  }
+
+  if(contJabon)
+  {
+    console.log(" la cantidad de unidades de jabonn son: "+acumCantJabon);
+  }else 
+  {
+    console.log("no se ingreso ninguna compra de jabon");
+  }
+  // a) Del más barato de los alcohol, la cantidad de unidades y el fabricante
+// b) Del tipo con mas unidades, el promedio por compra
+// c) Cuántas unidades de jabones hay en total */
+}
 
 
 
